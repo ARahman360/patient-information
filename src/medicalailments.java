@@ -24,7 +24,7 @@ public class medicalailments extends JFrame {
 	private JTextField DateofBirth;
 
 	/**
-	 * Launch the application. Change from Rashed
+	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
