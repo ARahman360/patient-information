@@ -1,7 +1,7 @@
 public class Main {
 
 	public static void main(String[] args) {
-		medicalailments medicalAilments = new medicalailments();
+		MedicalAilments medicalAilments = new MedicalAilments();
 		medicalAilments.setVisible(true);
 	}
 }

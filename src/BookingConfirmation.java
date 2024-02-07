@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class bookingconfirmation extends JFrame {
+public class BookingConfirmation extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -24,7 +24,7 @@ public class bookingconfirmation extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					bookingconfirmation frame = new bookingconfirmation();
+					BookingConfirmation frame = new BookingConfirmation();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class bookingconfirmation extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public bookingconfirmation() {
+	public BookingConfirmation() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 812, 442);
 		contentPane = new JPanel();

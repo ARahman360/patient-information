@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 
-public class kinsinfo extends JFrame {
+public class KinsInfo extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -28,7 +28,7 @@ public class kinsinfo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					kinsinfo frame = new kinsinfo();
+					KinsInfo frame = new KinsInfo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class kinsinfo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public kinsinfo() {
+	public KinsInfo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 812, 442);
 		contentPane = new JPanel();

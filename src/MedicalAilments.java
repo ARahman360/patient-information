@@ -14,7 +14,7 @@ import javax.swing.JList;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
-public class medicalailments extends JFrame {
+public class MedicalAilments extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -30,7 +30,7 @@ public class medicalailments extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					medicalailments frame = new medicalailments();
+					MedicalAilments frame = new MedicalAilments();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class medicalailments extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public medicalailments() {
+	public MedicalAilments() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 465);
 		contentPane = new JPanel();

@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 
-public class patientinfo extends JFrame {
+public class PatientInfo extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -28,7 +28,7 @@ public class patientinfo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					patientinfo frame = new patientinfo();
+					PatientInfo frame = new PatientInfo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class patientinfo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public patientinfo() {
+	public PatientInfo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 813, 444);
 		contentPane = new JPanel();
