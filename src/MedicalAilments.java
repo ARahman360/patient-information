@@ -1,8 +1,13 @@
 import java.awt.EventQueue;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -15,7 +20,7 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
 public class MedicalAilments extends JFrame {
-
+	Connection connection = null;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField Searchoption;
@@ -23,26 +28,8 @@ public class MedicalAilments extends JFrame {
 	private JTextField Requirementsfield;
 	private JTextField DateofBirth;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MedicalAilments frame = new MedicalAilments();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public MedicalAilments() {
+		connection = DBConn.dbConnector();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 465);
 		contentPane = new JPanel();
@@ -163,5 +150,18 @@ public class MedicalAilments extends JFrame {
 		DateofBirth.setColumns(10);
 		DateofBirth.setBounds(228, 327, 164, 30);
 		contentPane.add(DateofBirth);
+	}
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MedicalAilments frame = new MedicalAilments();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }
