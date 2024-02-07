@@ -7,7 +7,7 @@ public class DBConn {
 	public static Connection dbConnector() {		
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:D:\\Java\\Passengers\\database\\Passengers.sqlite");
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\arahm\\eclipse-workspace\\PatientInformation\\database\\PatientInformation.sqlite");
 			return conn;
 		} catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
