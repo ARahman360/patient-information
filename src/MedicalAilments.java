@@ -94,27 +94,27 @@ public class MedicalAilments extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("What problem are you facing?");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(228, 89, 198, 27);
+		lblNewLabel_1.setBounds(196, 89, 198, 27);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Can't find relative problem?");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_1.setBounds(228, 156, 198, 27);
+		lblNewLabel_1_1.setBounds(196, 169, 198, 27);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Have any disability? Optional");
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_2.setBounds(228, 223, 198, 27);
+		lblNewLabel_1_2.setBounds(196, 237, 198, 27);
 		contentPane.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Date of birth");
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_3.setBounds(228, 291, 88, 27);
+		lblNewLabel_1_3.setBounds(196, 303, 88, 27);
 		contentPane.add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_3_1 = new JLabel("Requirements");
 		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_3_1.setBounds(402, 291, 88, 27);
+		lblNewLabel_1_3_1.setBounds(402, 303, 88, 27);
 		contentPane.add(lblNewLabel_1_3_1);
 		
 		JButton btnNewButton_7 = new JButton("Next");
@@ -128,7 +128,7 @@ public class MedicalAilments extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		disabilityaddoption = new JTextField();
-		disabilityaddoption.setBounds(228, 251, 422, 30);
+		disabilityaddoption.setBounds(196, 263, 422, 30);
 		contentPane.add(disabilityaddoption);
 		disabilityaddoption.setColumns(10);
 		
@@ -143,12 +143,12 @@ public class MedicalAilments extends JFrame {
 		
 		Requirementsfield = new JTextField();
 		Requirementsfield.setColumns(10);
-		Requirementsfield.setBounds(402, 327, 248, 30);
+		Requirementsfield.setBounds(402, 330, 248, 30);
 		contentPane.add(Requirementsfield);
 		
 		DateofBirth = new JTextField();
 		DateofBirth.setColumns(10);
-		DateofBirth.setBounds(228, 327, 164, 30);
+		DateofBirth.setBounds(196, 330, 164, 30);
 		contentPane.add(DateofBirth);
 	}
 	

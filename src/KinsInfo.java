@@ -102,7 +102,7 @@ public class KinsInfo extends JFrame {
 		separator_1.setBounds(184, 58, 2, 305);
 		contentPane_1.add(separator_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("Personal details");
+		JLabel lblNewLabel_1 = new JLabel("Kin's details");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(196, 58, 141, 27);
 		contentPane_1.add(lblNewLabel_1);
