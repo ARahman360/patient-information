@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class BookingConfirmation extends JFrame {
 
@@ -117,6 +118,7 @@ public class BookingConfirmation extends JFrame {
 		contentPane_1.add(btnConfirm);
 		
 		JButton btnLater = new JButton("Later");
+		btnLater.setBackground(new Color(255, 255, 255));
 		btnLater.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -124,5 +126,4 @@ public class BookingConfirmation extends JFrame {
 		btnLater.setBounds(341, 137, 290, 35);
 		contentPane_1.add(btnLater);
 	}
-
 }

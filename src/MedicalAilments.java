@@ -152,6 +152,23 @@ public class MedicalAilments extends JFrame {
 		lblNewLabel_1_1.setBounds(51, 298, 198, 25);
 		bodyPanel.add(lblNewLabel_1_1);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_1.setBounds(228, 156, 198, 27);
+		contentPane.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Have any disability? Optional");
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_2.setBounds(228, 223, 198, 27);
+		contentPane.add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("Date of birth");
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_3.setBounds(228, 291, 88, 27);
+		contentPane.add(lblNewLabel_1_3);
+		
+		JLabel lblNewLabel_1_3_1 = new JLabel("Requirements");
+		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_3_1.setBounds(402, 291, 88, 27);
+		contentPane.add(lblNewLabel_1_3_1);
 		
 		JButton btnNewButton_7 = new JButton("Next");
 		btnNewButton_7.setBounds(451, 243, 100, 35);
@@ -163,20 +180,15 @@ public class MedicalAilments extends JFrame {
 		lblRegisteredPatient.setBounds(50, 11, 500, 25);
 		bodyPanel.add(lblRegisteredPatient);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Search Patient");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_2.setBounds(51, 41, 500, 25);
-		bodyPanel.add(lblNewLabel_1_2);
+		JLabel lblNewLabel_2 = new JLabel("BMH");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblNewLabel_2.setBounds(10, 9, 57, 28);
+		contentPane.add(lblNewLabel_2);
 		
-		JButton btnNewButton_7_1 = new JButton("Search");
-		btnNewButton_7_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_7_1.setBounds(451, 64, 100, 35);
-		bodyPanel.add(btnNewButton_7_1);
-		
-		JLabel lblNewPatient = new JLabel("New Patient");
-		lblNewPatient.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewPatient.setBounds(51, 139, 500, 25);
-		bodyPanel.add(lblNewPatient);
+		disabilityaddoption = new JTextField();
+		disabilityaddoption.setBounds(228, 251, 422, 30);
+		contentPane.add(disabilityaddoption);
+		disabilityaddoption.setColumns(10);
 		
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBounds(0, 124, 615, 2);
@@ -186,26 +198,15 @@ public class MedicalAilments extends JFrame {
 		separator_2_1.setBounds(0, 290, 615, 2);
 		bodyPanel.add(separator_2_1);
 		
-		JButton btnNewButton_7_2 = new JButton("Add Problem");
-		btnNewButton_7_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_7_2.setBounds(51, 329, 200, 35);
-		bodyPanel.add(btnNewButton_7_2);
-		btnFinance.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPharmacy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPatientInfo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAppoinments.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		Requirementsfield = new JTextField();
+		Requirementsfield.setColumns(10);
+		Requirementsfield.setBounds(402, 327, 248, 30);
+		contentPane.add(Requirementsfield);
+		
+		DateofBirth = new JTextField();
+		DateofBirth.setColumns(10);
+		DateofBirth.setBounds(228, 327, 164, 30);
+		contentPane.add(DateofBirth);
 	}
 	
 	public static void main(String[] args) {
