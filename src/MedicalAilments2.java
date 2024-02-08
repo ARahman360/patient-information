@@ -3,7 +3,6 @@ import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,18 +20,20 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-
 import java.awt.Color;
 import java.awt.SystemColor;
 
-public class MedicalAilments extends JFrame {
+public class MedicalAilments2 extends JFrame {
 	Connection connection = null;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField Searchoption;
+	private JTextField disabilityaddoption;
+	private JTextField Requirementsfield;
+	private JTextField DateofBirth;
+	private JTextField textField;
 
-	public MedicalAilments() {
+	public MedicalAilments2() {
 		setTitle("BMH : Medical Ailments");
 		connection = DBConn.dbConnector();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,80 +117,68 @@ public class MedicalAilments extends JFrame {
 		
 		Searchoption = new JTextField();
 		Searchoption.setToolTipText("Search");
-		Searchoption.setBounds(51, 64, 400, 35);
+		Searchoption.setBounds(125, 10, 400, 35);
 		bodyPanel.add(Searchoption);
 		Searchoption.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("What problem are you facing?");
-		lblNewLabel_1.setBounds(51, 169, 198, 25);
+		lblNewLabel_1.setBounds(50, 50, 198, 25);
 		bodyPanel.add(lblNewLabel_1);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-//		------- Ailment Selection -------
-		JComboBox ailmentSelector = new JComboBox();
-		ailmentSelector.setBounds(51, 197, 500, 35);
-		bodyPanel.add(ailmentSelector);
-		
-		String queryString = "SELECT DISTINCT description FROM ailments";
-	    try {
-	        Statement stmt = connection.createStatement();
-	        ResultSet rs = stmt.executeQuery(queryString);
-	        while (rs.next()) {
-	        	ailmentSelector.addItem(rs.getString(1));
-	        }
-	        rs.close();
-	        stmt.close();
-	        connection.close();
-	    } catch(Exception ex) {
-			JOptionPane.showMessageDialog(null, ex);
-		}
-		
-
-
-		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(50, 77, 500, 35);
+		bodyPanel.add(comboBox);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Can't find relative problem?");
-		lblNewLabel_1_1.setBounds(51, 298, 198, 25);
+		lblNewLabel_1_1.setBounds(50, 122, 198, 25);
 		bodyPanel.add(lblNewLabel_1_1);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
+		textField = new JTextField();
+		textField.setBounds(50, 147, 500, 35);
+		bodyPanel.add(textField);
+		textField.setColumns(10);
+		
 		JButton btnNewButton_7 = new JButton("Next");
-		btnNewButton_7.setBounds(451, 243, 100, 35);
+		btnNewButton_7.setBounds(465, 333, 85, 35);
 		bodyPanel.add(btnNewButton_7);
 		btnNewButton_7.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		JLabel lblRegisteredPatient = new JLabel("Registered Patient");
-		lblRegisteredPatient.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblRegisteredPatient.setBounds(50, 11, 500, 25);
-		bodyPanel.add(lblRegisteredPatient);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Search Patient");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_2.setBounds(51, 41, 500, 25);
+		JLabel lblNewLabel_1_2 = new JLabel("Have any disability? Optional");
+		lblNewLabel_1_2.setBounds(50, 192, 198, 25);
 		bodyPanel.add(lblNewLabel_1_2);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		JButton btnNewButton_7_1 = new JButton("Search");
-		btnNewButton_7_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_7_1.setBounds(451, 64, 100, 35);
-		bodyPanel.add(btnNewButton_7_1);
+		disabilityaddoption = new JTextField();
+		disabilityaddoption.setBounds(50, 217, 500, 35);
+		bodyPanel.add(disabilityaddoption);
+		disabilityaddoption.setColumns(10);
 		
-		JLabel lblNewPatient = new JLabel("New Patient");
-		lblNewPatient.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewPatient.setBounds(51, 139, 500, 25);
-		bodyPanel.add(lblNewPatient);
+		DateofBirth = new JTextField();
+		DateofBirth.setBounds(50, 287, 240, 35);
+		bodyPanel.add(DateofBirth);
+		DateofBirth.setColumns(10);
 		
-		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(0, 124, 615, 2);
-		bodyPanel.add(separator_2);
+		Requirementsfield = new JTextField();
+		Requirementsfield.setBounds(310, 287, 240, 35);
+		bodyPanel.add(Requirementsfield);
+		Requirementsfield.setColumns(10);
 		
-		JSeparator separator_2_1 = new JSeparator();
-		separator_2_1.setBounds(0, 290, 615, 2);
-		bodyPanel.add(separator_2_1);
+		JLabel lblNewLabel_1_3_1 = new JLabel("Requirements");
+		lblNewLabel_1_3_1.setBounds(310, 262, 88, 25);
+		bodyPanel.add(lblNewLabel_1_3_1);
+		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		JButton btnNewButton_7_2 = new JButton("Add Problem");
-		btnNewButton_7_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_7_2.setBounds(51, 329, 200, 35);
-		bodyPanel.add(btnNewButton_7_2);
+		JLabel lblNewLabel_1_3 = new JLabel("Date of birth");
+		lblNewLabel_1_3.setBounds(50, 262, 88, 25);
+		bodyPanel.add(lblNewLabel_1_3);
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JLabel lblNewLabel_1_4 = new JLabel("Search:");
+		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_4.setBounds(75, 10, 50, 35);
+		bodyPanel.add(lblNewLabel_1_4);
 		btnFinance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -212,7 +201,7 @@ public class MedicalAilments extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MedicalAilments frame = new MedicalAilments();
+					MedicalAilments2 frame = new MedicalAilments2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
