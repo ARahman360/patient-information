@@ -77,8 +77,7 @@ public class MedicalAilments extends JFrame {
 		ailmentSelector = new JComboBox<String>();
 		ailmentSelector.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		ailmentSelector.setBounds(51, 197, 500, 35);
-		bodyPanel.add(ailmentSelector);
-		
+		ailmentSelector.addItem("---Select-Problem---");
 		String queryString = "SELECT DISTINCT description FROM ailments";
 	    try {
 	        Statement stmt = connection.createStatement();
@@ -92,14 +91,15 @@ public class MedicalAilments extends JFrame {
 	    } catch(Exception ex) {
 			JOptionPane.showMessageDialog(null, ex);
 		}
+	    bodyPanel.add(ailmentSelector);
 		
 		gotoPatientInfoButton = new JButton("Next");
 		gotoPatientInfoButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String searchText = searchTextBox.getText();
-                if ("".equals(searchText)) {
-                    JOptionPane.showMessageDialog(MedicalAilments.this, "No Visit Number was provided!");
+				String selectedProblem = String.valueOf(ailmentSelector.getSelectedItem());
+                if ("---Select-Problem---".equals(selectedProblem)) {
+                    JOptionPane.showMessageDialog(MedicalAilments.this, "No problem was selected!");
                 } else {
                 	dispose();
 					PatientInfo patientInfo = new PatientInfo(); //searchText
@@ -117,7 +117,7 @@ public class MedicalAilments extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				String searchText = searchTextBox.getText();
                 if ("".equals(searchText)) {
-                    JOptionPane.showMessageDialog(MedicalAilments.this, "No Visit Number was provided!");
+                    JOptionPane.showMessageDialog(MedicalAilments.this, "No visit number was provided!");
                 } else {
                 	dispose();
 					PatientInfo patientInfo = new PatientInfo(); //searchText

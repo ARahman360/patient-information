@@ -16,6 +16,7 @@ import components.BodyPanel;
 import java.awt.Color;
 
 public class PatientInfo extends JFrame {
+	private String selectedProblem;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
@@ -31,7 +32,8 @@ public class PatientInfo extends JFrame {
 	private JTextField textField_10;
 	private JTextField textField_11;
 
-	public PatientInfo() {
+	public PatientInfo(String selectedProblem) {
+		this.selectedProblem = selectedProblem;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 816, 465);
 		contentPane = new JPanel();
@@ -200,6 +202,16 @@ public class PatientInfo extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(0, 316, 615, 4);
 		bodyPanel.add(separator_1);
+		
+		JLabel lblPatientsProblem = new JLabel("Patient's Problem");
+		lblPatientsProblem.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPatientsProblem.setBounds(105, 328, 403, 20);
+		bodyPanel.add(lblPatientsProblem);
+		
+		JLabel lblNewLabel_1_1_4 = new JLabel("Problem Details");
+		lblNewLabel_1_1_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_1_4.setBounds(105, 345, 408, 20);
+		bodyPanel.add(lblNewLabel_1_1_4);
 	}
 	
 	public static void main(String[] args) {

@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
 
 public class HeaderPanel extends JPanel {
 	String title;
@@ -22,14 +23,19 @@ public class HeaderPanel extends JPanel {
 		
 		JLabel lblNewLabel_2 = new JLabel("BMH");
 		lblNewLabel_2.setForeground(Color.GRAY);
-		lblNewLabel_2.setBounds(20, 10, 57, 28);
+		lblNewLabel_2.setBounds(42, 4, 75, 28);
 		this.add(lblNewLabel_2);
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 22));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
 		JLabel lblNewLabel = new JLabel(title);
 		lblNewLabel.setBounds(308, 10, 185, 28);
 		this.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		
+		JLabel lblNewLabel_1 = new JLabel("Brunel Medical Hospital");
+		lblNewLabel_1.setForeground(Color.GRAY);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		lblNewLabel_1.setBounds(30, 30, 100, 10);
+		add(lblNewLabel_1);
 	}
-
 }
