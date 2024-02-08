@@ -116,12 +116,12 @@ public class MedicalAilments extends JFrame {
 		
 		Searchoption = new JTextField();
 		Searchoption.setToolTipText("Search");
-		Searchoption.setBounds(51, 64, 400, 35);
+		Searchoption.setBounds(51, 63, 302, 35);
 		bodyPanel.add(Searchoption);
 		Searchoption.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("What problem are you facing?");
-		lblNewLabel_1.setBounds(51, 169, 198, 25);
+		lblNewLabel_1.setBounds(51, 169, 500, 25);
 		bodyPanel.add(lblNewLabel_1);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
@@ -144,34 +144,8 @@ public class MedicalAilments extends JFrame {
 			JOptionPane.showMessageDialog(null, ex);
 		}
 		
-
-
-		
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Can't find relative problem?");
-		lblNewLabel_1_1.setBounds(51, 298, 198, 25);
-		bodyPanel.add(lblNewLabel_1_1);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_1.setBounds(228, 156, 198, 27);
-		contentPane.add(lblNewLabel_1_1);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Have any disability? Optional");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_2.setBounds(228, 223, 198, 27);
-		contentPane.add(lblNewLabel_1_2);
-		
-		JLabel lblNewLabel_1_3 = new JLabel("Date of birth");
-		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_3.setBounds(228, 291, 88, 27);
-		contentPane.add(lblNewLabel_1_3);
-		
-		JLabel lblNewLabel_1_3_1 = new JLabel("Requirements");
-		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_3_1.setBounds(402, 291, 88, 27);
-		contentPane.add(lblNewLabel_1_3_1);
-		
 		JButton btnNewButton_7 = new JButton("Next");
-		btnNewButton_7.setBounds(451, 243, 100, 35);
+		btnNewButton_7.setBounds(352, 243, 200, 35);
 		bodyPanel.add(btnNewButton_7);
 		btnNewButton_7.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
@@ -179,16 +153,6 @@ public class MedicalAilments extends JFrame {
 		lblRegisteredPatient.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblRegisteredPatient.setBounds(50, 11, 500, 25);
 		bodyPanel.add(lblRegisteredPatient);
-		
-		JLabel lblNewLabel_2 = new JLabel("BMH");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 22));
-		lblNewLabel_2.setBounds(10, 9, 57, 28);
-		contentPane.add(lblNewLabel_2);
-		
-		disabilityaddoption = new JTextField();
-		disabilityaddoption.setBounds(228, 251, 422, 30);
-		contentPane.add(disabilityaddoption);
-		disabilityaddoption.setColumns(10);
 		
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setBounds(0, 124, 615, 2);
@@ -198,15 +162,30 @@ public class MedicalAilments extends JFrame {
 		separator_2_1.setBounds(0, 290, 615, 2);
 		bodyPanel.add(separator_2_1);
 		
-		Requirementsfield = new JTextField();
-		Requirementsfield.setColumns(10);
-		Requirementsfield.setBounds(402, 327, 248, 30);
-		contentPane.add(Requirementsfield);
+		JLabel lblNewLabel_1_1 = new JLabel("Search Patient");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_1.setBounds(51, 36, 500, 25);
+		bodyPanel.add(lblNewLabel_1_1);
 		
-		DateofBirth = new JTextField();
-		DateofBirth.setColumns(10);
-		DateofBirth.setBounds(228, 327, 164, 30);
-		contentPane.add(DateofBirth);
+		JLabel lblNewPatient = new JLabel("New Patient");
+		lblNewPatient.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewPatient.setBounds(51, 137, 500, 25);
+		bodyPanel.add(lblNewPatient);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Can't find your problem?");
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_2.setBounds(51, 303, 500, 25);
+		bodyPanel.add(lblNewLabel_1_2);
+		
+		JButton btnNewButton_7_1 = new JButton("Add Problem");
+		btnNewButton_7_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton_7_1.setBounds(51, 329, 200, 35);
+		bodyPanel.add(btnNewButton_7_1);
+		
+		JButton btnNewButton_7_2 = new JButton("Search");
+		btnNewButton_7_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton_7_2.setBounds(352, 63, 200, 35);
+		bodyPanel.add(btnNewButton_7_2);
 	}
 	
 	public static void main(String[] args) {
