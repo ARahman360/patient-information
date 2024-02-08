@@ -8,7 +8,6 @@ import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -22,9 +21,12 @@ import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
 import java.awt.Color;
 import java.awt.SystemColor;
+
+import components.SidebarPanel;
+import components.HeaderPanel;
+import components.BodyPanel;
 
 public class MedicalAilments extends JFrame {
 	Connection connection = null;
@@ -37,82 +39,26 @@ public class MedicalAilments extends JFrame {
 		connection = DBConn.dbConnector();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 465);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel headerPanel = new JPanel();
-		headerPanel.setBackground(Color.WHITE);
-		headerPanel.setBounds(0, 0, 800, 50);
+		// Header Panel
+		HeaderPanel headerPanel = new HeaderPanel("Medical Ailments");
 		contentPane.add(headerPanel);
-		headerPanel.setLayout(null);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(0, 49, 800, 2);
-		headerPanel.add(separator);
-		
-		JLabel lblNewLabel_2 = new JLabel("BMH");
-		lblNewLabel_2.setForeground(Color.GRAY);
-		lblNewLabel_2.setBounds(20, 10, 57, 28);
-		headerPanel.add(lblNewLabel_2);
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 22));
-		
-		JLabel lblNewLabel = new JLabel("Medical Ailments");
-		lblNewLabel.setBounds(308, 10, 185, 28);
-		headerPanel.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		
-		JPanel sidebarPanel = new JPanel();
-		sidebarPanel.setBackground(Color.WHITE);
-		sidebarPanel.setBounds(0, 50, 185, 375);
+		// Sidebar Panel
+		SidebarPanel sidebarPanel = new SidebarPanel();
 		contentPane.add(sidebarPanel);
-		sidebarPanel.setLayout(null);
 		
-		JButton btnDashboard = new JButton("DASHBOARD");
-		btnDashboard.setBounds(10, 10, 165, 35);
-		sidebarPanel.add(btnDashboard);
-		
-		JButton btnAppoinments = new JButton("APPOINMENTS");
-		btnAppoinments.setBounds(10, 55, 165, 35);
-		sidebarPanel.add(btnAppoinments);
-		
-		JButton btnPatientInfo = new JButton("PATIENT INFO");
-		btnPatientInfo.setBounds(10, 101, 164, 35);
-		sidebarPanel.add(btnPatientInfo);
-		
-		JButton btnPharmacy = new JButton("PHARMACY");
-		btnPharmacy.setBounds(10, 147, 165, 35);
-		sidebarPanel.add(btnPharmacy);
-		
-		JButton btnDoctorReview = new JButton("DOCTOR REVIEW");
-		btnDoctorReview.setBounds(10, 193, 165, 35);
-		sidebarPanel.add(btnDoctorReview);
-		
-		JButton btnRestaurant = new JButton("RESTAURANT");
-		btnRestaurant.setBounds(10, 239, 165, 35);
-		sidebarPanel.add(btnRestaurant);
-		
-		JButton btnFinance = new JButton("FINANCE");
-		btnFinance.setBounds(10, 285, 165, 35);
-		sidebarPanel.add(btnFinance);
-		
-		JLabel lblNewLabel_3 = new JLabel("Made By Abdur Rahman");
-		lblNewLabel_3.setForeground(Color.GRAY);
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(10, 351, 165, 14);
-		sidebarPanel.add(lblNewLabel_3);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(184, 0, 2, 376);
-		sidebarPanel.add(separator_1);
-		separator_1.setOrientation(SwingConstants.VERTICAL);
-		
-		JPanel bodyPanel = new JPanel();
-		bodyPanel.setBounds(185, 50, 615, 375);
+		// Body Panel
+		BodyPanel bodyPanel = new BodyPanel();
 		contentPane.add(bodyPanel);
-		bodyPanel.setLayout(null);
+		
+		// ------ start code here ------
 		
 		Searchoption = new JTextField();
 		Searchoption.setToolTipText("Search");
