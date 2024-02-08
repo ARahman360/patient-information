@@ -1,7 +1,6 @@
 import java.awt.EventQueue;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -11,28 +10,30 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextPane;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
-import javax.swing.JList;
+import javax.swing.UIManager;
 import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import java.awt.Color;
-import java.awt.SystemColor;
+
 
 import components.SidebarPanel;
 import components.HeaderPanel;
 import components.BodyPanel;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class MedicalAilments extends JFrame {
 	Connection connection = null;
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField Searchoption;
+	private JTextField searchTextBox;
+	private JButton addProblemButton;
+	private JComboBox<String> ailmentSelector;
+	private JButton gotoPatientInfoButton;
+	private JButton searchButton;
 
 	public MedicalAilments() {
 		setTitle("BMH : Medical Ailments");
@@ -40,7 +41,7 @@ public class MedicalAilments extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 465);
 		
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -50,7 +51,7 @@ public class MedicalAilments extends JFrame {
 		HeaderPanel headerPanel = new HeaderPanel("Medical Ailments");
 		contentPane.add(headerPanel);
 		
-		// Sidebar Panel
+		// Side bar Panel
 		SidebarPanel sidebarPanel = new SidebarPanel();
 		contentPane.add(sidebarPanel);
 		
@@ -60,19 +61,21 @@ public class MedicalAilments extends JFrame {
 		
 		// ------ start code here ------
 		
-		Searchoption = new JTextField();
-		Searchoption.setToolTipText("Search");
-		Searchoption.setBounds(51, 63, 302, 35);
-		bodyPanel.add(Searchoption);
-		Searchoption.setColumns(10);
+		searchTextBox = new JTextField();
+		searchTextBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		searchTextBox.setToolTipText("Search");
+		searchTextBox.setBounds(51, 63, 302, 35);
+		bodyPanel.add(searchTextBox);
+		searchTextBox.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("What problem are you facing?");
 		lblNewLabel_1.setBounds(51, 169, 500, 25);
 		bodyPanel.add(lblNewLabel_1);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-//		------- Ailment Selection -------
-		JComboBox ailmentSelector = new JComboBox();
+		// ------- Ailment Selection -------
+		ailmentSelector = new JComboBox<String>();
+		ailmentSelector.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		ailmentSelector.setBounds(51, 197, 500, 35);
 		bodyPanel.add(ailmentSelector);
 		
@@ -90,10 +93,41 @@ public class MedicalAilments extends JFrame {
 			JOptionPane.showMessageDialog(null, ex);
 		}
 		
-		JButton btnNewButton_7 = new JButton("Next");
-		btnNewButton_7.setBounds(352, 243, 200, 35);
-		bodyPanel.add(btnNewButton_7);
-		btnNewButton_7.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		gotoPatientInfoButton = new JButton("Next");
+		gotoPatientInfoButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String searchText = searchTextBox.getText();
+                if ("".equals(searchText)) {
+                    JOptionPane.showMessageDialog(MedicalAilments.this, "No Visit Number was provided!");
+                } else {
+                	dispose();
+					PatientInfo patientInfo = new PatientInfo(); //searchText
+					patientInfo.setVisible(true);
+                }
+			}
+		});
+		gotoPatientInfoButton.setBounds(352, 243, 200, 35);
+		bodyPanel.add(gotoPatientInfoButton);
+		gotoPatientInfoButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		
+		searchButton = new JButton("Search");
+		searchButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String searchText = searchTextBox.getText();
+                if ("".equals(searchText)) {
+                    JOptionPane.showMessageDialog(MedicalAilments.this, "No Visit Number was provided!");
+                } else {
+                	dispose();
+					PatientInfo patientInfo = new PatientInfo(); //searchText
+					patientInfo.setVisible(true);
+                }
+			}
+		});
+		searchButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		searchButton.setBounds(352, 63, 200, 35);
+		bodyPanel.add(searchButton);
 		
 		JLabel lblRegisteredPatient = new JLabel("Registered Patient");
 		lblRegisteredPatient.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -123,21 +157,17 @@ public class MedicalAilments extends JFrame {
 		lblNewLabel_1_2.setBounds(51, 303, 500, 25);
 		bodyPanel.add(lblNewLabel_1_2);
 		
-		JButton btnNewButton_7_1 = new JButton("Add Problem");
-		btnNewButton_7_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_7_1.setBounds(51, 329, 200, 35);
-		bodyPanel.add(btnNewButton_7_1);
-		
-		JButton btnNewButton_7_2 = new JButton("Search");
-		btnNewButton_7_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton_7_2.setBounds(352, 63, 200, 35);
-		bodyPanel.add(btnNewButton_7_2);
+		addProblemButton = new JButton("Add Problem");
+		addProblemButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		addProblemButton.setBounds(51, 329, 200, 35);
+		bodyPanel.add(addProblemButton);
 	}
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					MedicalAilments frame = new MedicalAilments();
 					frame.setVisible(true);
 				} catch (Exception e) {
