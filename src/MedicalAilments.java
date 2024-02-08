@@ -16,10 +16,11 @@ import javax.swing.JSeparator;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-
+import components.DBConn;
 import components.SidebarPanel;
 import components.HeaderPanel;
 import components.BodyPanel;
+import components.DBConn;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -102,7 +103,7 @@ public class MedicalAilments extends JFrame {
                     JOptionPane.showMessageDialog(MedicalAilments.this, "No problem was selected!");
                 } else {
                 	dispose();
-					PatientInfo patientInfo = new PatientInfo(); //searchText
+					PatientInfo patientInfo = new PatientInfo(selectedProblem); //searchText
 					patientInfo.setVisible(true);
                 }
 			}
@@ -120,8 +121,8 @@ public class MedicalAilments extends JFrame {
                     JOptionPane.showMessageDialog(MedicalAilments.this, "No visit number was provided!");
                 } else {
                 	dispose();
-					PatientInfo patientInfo = new PatientInfo(); //searchText
-					patientInfo.setVisible(true);
+					PatientDetails patientDetails = new PatientDetails(); //searchText
+					patientDetails.setVisible(true);
                 }
 			}
 		});

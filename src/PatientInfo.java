@@ -15,23 +15,25 @@ import components.SidebarPanel;
 import components.HeaderPanel;
 import components.BodyPanel;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PatientInfo extends JFrame {
 	private String selectedProblem;
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textFirstName;
+	private JTextField textSurName;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
 	private JTextField textField_11;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
 
 	public PatientInfo(String selectedProblem) {
 		this.selectedProblem = selectedProblem;
@@ -65,15 +67,15 @@ public class PatientInfo extends JFrame {
 		bodyPanel.add(lblNewLabel_1_2);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		textField = new JTextField();
-		textField.setBounds(10, 69, 135, 30);
-		bodyPanel.add(textField);
-		textField.setColumns(10);
+		textFirstName = new JTextField();
+		textFirstName.setBounds(10, 69, 135, 30);
+		bodyPanel.add(textFirstName);
+		textFirstName.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(152, 69, 135, 30);
-		bodyPanel.add(textField_1);
-		textField_1.setColumns(10);
+		textSurName = new JTextField();
+		textSurName.setBounds(152, 69, 135, 30);
+		bodyPanel.add(textSurName);
+		textSurName.setColumns(10);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Date of birth");
 		lblNewLabel_1_1_1.setBounds(12, 99, 141, 27);
@@ -86,32 +88,32 @@ public class PatientInfo extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_1_1_2 = new JLabel("Mobile number ");
-		lblNewLabel_1_1_2.setBounds(10, 150, 141, 27);
+		lblNewLabel_1_1_2.setBounds(155, 99, 141, 27);
 		bodyPanel.add(lblNewLabel_1_1_2);
 		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(10, 172, 140, 30);
+		textField_3.setBounds(155, 121, 132, 30);
 		bodyPanel.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_1_1_2_1 = new JLabel("Email");
-		lblNewLabel_1_1_2_1.setBounds(10, 200, 141, 27);
+		lblNewLabel_1_1_2_1.setBounds(10, 158, 141, 27);
 		bodyPanel.add(lblNewLabel_1_1_2_1);
 		lblNewLabel_1_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(10, 225, 277, 30);
+		textField_4.setBounds(10, 183, 277, 30);
 		bodyPanel.add(textField_4);
 		textField_4.setColumns(10);
 		
 		JLabel lblNewLabel_1_1_2_1_1 = new JLabel("Address");
-		lblNewLabel_1_1_2_1_1.setBounds(10, 253, 141, 27);
+		lblNewLabel_1_1_2_1_1.setBounds(10, 211, 141, 27);
 		bodyPanel.add(lblNewLabel_1_1_2_1_1);
 		lblNewLabel_1_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(10, 276, 277, 30);
+		textField_5.setBounds(10, 234, 277, 52);
 		bodyPanel.add(textField_5);
 		textField_5.setColumns(10);
 		
@@ -120,10 +122,18 @@ public class PatientInfo extends JFrame {
 		bodyPanel.add(btnNewButton_7);
 		btnNewButton_7.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		JButton btnNewButton_7_1 = new JButton("Back");
-		btnNewButton_7_1.setBounds(10, 330, 85, 31);
-		bodyPanel.add(btnNewButton_7_1);
-		btnNewButton_7_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		JButton goBackButton = new JButton("Back");
+		goBackButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				MedicalAilments medicalAilments = new MedicalAilments();
+				medicalAilments.setVisible(true);
+			}
+		});
+		goBackButton.setBounds(10, 330, 85, 31);
+		bodyPanel.add(goBackButton);
+		goBackButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JLabel lblPatientInformation = new JLabel("Patient Information");
 		lblPatientInformation.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -139,36 +149,6 @@ public class PatientInfo extends JFrame {
 		separator.setOrientation(SwingConstants.VERTICAL);
 		separator.setBounds(300, 0, 1, 315);
 		bodyPanel.add(separator);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(311, 276, 277, 30);
-		bodyPanel.add(textField_6);
-		
-		JLabel lblNewLabel_1_1_2_1_1_1 = new JLabel("Address");
-		lblNewLabel_1_1_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_1_2_1_1_1.setBounds(311, 253, 141, 27);
-		bodyPanel.add(lblNewLabel_1_1_2_1_1_1);
-		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(311, 225, 277, 30);
-		bodyPanel.add(textField_7);
-		
-		JLabel lblNewLabel_1_1_2_1_2 = new JLabel("Email");
-		lblNewLabel_1_1_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_1_2_1_2.setBounds(311, 200, 141, 27);
-		bodyPanel.add(lblNewLabel_1_1_2_1_2);
-		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(311, 172, 140, 30);
-		bodyPanel.add(textField_8);
-		
-		JLabel lblNewLabel_1_1_2_2 = new JLabel("Mobile number ");
-		lblNewLabel_1_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_1_2_2.setBounds(311, 150, 141, 27);
-		bodyPanel.add(lblNewLabel_1_1_2_2);
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
@@ -204,15 +184,47 @@ public class PatientInfo extends JFrame {
 		separator_1.setBounds(0, 316, 615, 4);
 		bodyPanel.add(separator_1);
 		
-		JLabel lblPatientsProblem = new JLabel("Patient's Problem");
-		lblPatientsProblem.setFont(new Font("Tahoma", Font.BOLD, 14));
+		JLabel lblPatientsProblem = new JLabel("Patient's Problem:");
+		lblPatientsProblem.setForeground(Color.DARK_GRAY);
+		lblPatientsProblem.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblPatientsProblem.setBounds(105, 328, 403, 20);
 		bodyPanel.add(lblPatientsProblem);
 		
-		JLabel lblNewLabel_1_1_4 = new JLabel("Problem Details");
-		lblNewLabel_1_1_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_1_4.setBounds(105, 345, 408, 20);
-		bodyPanel.add(lblNewLabel_1_1_4);
+		JLabel problemDetailsText = new JLabel("Problem Details");
+		problemDetailsText.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		problemDetailsText.setBounds(105, 345, 408, 20);
+		problemDetailsText.setText(selectedProblem);
+		bodyPanel.add(problemDetailsText);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(313, 234, 277, 52);
+		bodyPanel.add(textField_6);
+		
+		JLabel lblNewLabel_1_1_2_1_1_1 = new JLabel("Address");
+		lblNewLabel_1_1_2_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_1_2_1_1_1.setBounds(313, 211, 141, 27);
+		bodyPanel.add(lblNewLabel_1_1_2_1_1_1);
+		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(313, 183, 277, 30);
+		bodyPanel.add(textField_7);
+		
+		JLabel lblNewLabel_1_1_2_1_2 = new JLabel("Email");
+		lblNewLabel_1_1_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_1_2_1_2.setBounds(313, 158, 141, 27);
+		bodyPanel.add(lblNewLabel_1_1_2_1_2);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(458, 121, 132, 30);
+		bodyPanel.add(textField_8);
+		
+		JLabel lblNewLabel_1_1_2_2 = new JLabel("Mobile number ");
+		lblNewLabel_1_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1_1_2_2.setBounds(458, 99, 135, 27);
+		bodyPanel.add(lblNewLabel_1_1_2_2);
 	}
 	
 	public static void main(String[] args) {
@@ -220,7 +232,7 @@ public class PatientInfo extends JFrame {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					PatientInfo frame = new PatientInfo();
+					PatientInfo frame = new PatientInfo("Example Problem");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
