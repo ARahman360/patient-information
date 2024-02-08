@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ public class BookingConfirmation extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					BookingConfirmation frame = new BookingConfirmation();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -125,5 +127,24 @@ public class BookingConfirmation extends JFrame {
 		});
 		btnLater.setBounds(341, 137, 290, 35);
 		contentPane_1.add(btnLater);
+		
+		JSeparator separator_2 = new JSeparator();
+		separator_2.setBounds(191, 194, 600, 2);
+		contentPane_1.add(separator_2);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Your visit number:");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1_1.setBounds(196, 204, 140, 27);
+		contentPane_1.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("88888888");
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_1_1_1.setBounds(341, 238, 140, 27);
+		contentPane_1.add(lblNewLabel_1_1_1);
+		
+		JButton btnNewButton_7_1_1 = new JButton("Back");
+		btnNewButton_7_1_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton_7_1_1.setBounds(704, 366, 85, 31);
+		contentPane_1.add(btnNewButton_7_1_1);
 	}
 }

@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JTextField;
 
 import components.SidebarPanel;
@@ -206,6 +207,7 @@ public class PatientInfo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					PatientInfo frame = new PatientInfo();
 					frame.setVisible(true);
 				} catch (Exception e) {
