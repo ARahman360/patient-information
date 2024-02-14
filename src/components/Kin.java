@@ -1,12 +1,12 @@
 package components;
 
 public class Kin {
-	private String firstName;
-	private String surName;
-	private String relation;
-	private String mobile;
-	private String email;
-	private String address;
+	public String firstName;
+	public String surName;
+	public String relation;
+	public String mobile;
+	public String email;
+	public String address;
 	
 	public Kin(String firstName, String surName, String relation, String mobile, String email, String address) {
 		this.firstName = firstName;
@@ -17,11 +17,7 @@ public class Kin {
 		this.address = address;
 	}
 	
-	public boolean isError(){
-		if (this.firstName == "" && this.surName == "" && this.relation == "" && this.mobile == "" && this.email == "" && this.address == "" ) {
-			return false;
-		} else {			
-			return true;
-		}
+	public boolean noError(){
+		return !firstName.isEmpty() && !surName.isEmpty() && !relation.isEmpty() && !mobile.isEmpty() && !email.isEmpty() && !address.isEmpty(); 
     }
 }

@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class HeaderPanel extends JPanel {
 	String title;
@@ -28,7 +29,8 @@ public class HeaderPanel extends JPanel {
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
 		JLabel lblNewLabel = new JLabel(title);
-		lblNewLabel.setBounds(308, 10, 185, 28);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 10, 800, 28);
 		this.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		

@@ -16,6 +16,8 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PatientDetails extends JFrame {
 
@@ -27,26 +29,25 @@ public class PatientDetails extends JFrame {
 	private JLabel lblNewLabel_1_1_2;
 	private JLabel lblNewLabel_1_1_2_1;
 	private JButton goBackButton;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
+	private JLabel firstNameText;
+	private JLabel ageText;
+	private JLabel mobileText;
+	private JLabel emailText;
+	private JLabel addressText;
 	private JSeparator separator;
 	private JLabel lblNewLabel_1_1_2_3;
-	private JLabel lblNewLabel_6;
+	private JLabel selectedProblemText;
 	private JLabel lblNewLabel_7;
-	private JLabel lblNewLabel_8;
+	private JLabel kNameText;
 	private JLabel lblNewLabel_1_2;
-	private JLabel lblNewLabel_9;
+	private JLabel kRelationText;
 	private JLabel lblNewLabel_1_1_3;
-	private JLabel lblNewLabel_10;
+	private JLabel kMobileText;
 	private JSeparator separator_1;
 	private JLabel lblNewLabel_1_1_2_4;
-	private JLabel lblNewLabel_13;
+	private JLabel visitNumberText;
 
-
-	public PatientDetails() {
+	public PatientDetails(int visitingNumber, String firstName) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 816, 465);
 		contentPane = new JPanel();
@@ -98,30 +99,31 @@ public class PatientDetails extends JFrame {
 		goBackButton.setBounds(10, 369, 200, 35);
 		contentPane.add(goBackButton);
 		
-		lblNewLabel = new JLabel("Abdur Rahman");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel.setBounds(26, 99, 141, 27);
-		contentPane.add(lblNewLabel);
+		firstNameText = new JLabel("Abdur Rahman");
+		firstNameText.setText(firstName);
+		firstNameText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		firstNameText.setBounds(26, 99, 141, 27);
+		contentPane.add(firstNameText);
 		
-		lblNewLabel_2 = new JLabel("Abdur Rahman");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_2.setBounds(26, 151, 141, 27);
-		contentPane.add(lblNewLabel_2);
+		ageText = new JLabel("Abdur Rahman");
+		ageText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		ageText.setBounds(26, 151, 141, 27);
+		contentPane.add(ageText);
 		
-		lblNewLabel_3 = new JLabel("Abdur Rahman");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_3.setBounds(26, 203, 141, 27);
-		contentPane.add(lblNewLabel_3);
+		mobileText = new JLabel("Abdur Rahman");
+		mobileText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		mobileText.setBounds(26, 203, 141, 27);
+		contentPane.add(mobileText);
 		
-		lblNewLabel_4 = new JLabel("Abdur Rahman");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_4.setBounds(26, 255, 141, 27);
-		contentPane.add(lblNewLabel_4);
+		emailText = new JLabel("Abdur Rahman");
+		emailText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		emailText.setBounds(26, 255, 141, 27);
+		contentPane.add(emailText);
 		
-		lblNewLabel_5 = new JLabel("Abdur Rahman");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_5.setBounds(26, 307, 141, 27);
-		contentPane.add(lblNewLabel_5);
+		addressText = new JLabel("Abdur Rahman");
+		addressText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		addressText.setBounds(26, 307, 141, 27);
+		contentPane.add(addressText);
 		
 		separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
@@ -133,40 +135,40 @@ public class PatientDetails extends JFrame {
 		lblNewLabel_1_1_2_3.setBounds(380, 112, 141, 27);
 		contentPane.add(lblNewLabel_1_1_2_3);
 		
-		lblNewLabel_6 = new JLabel("Abdur Rahman");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_6.setBounds(380, 138, 141, 27);
-		contentPane.add(lblNewLabel_6);
+		selectedProblemText = new JLabel("Abdur Rahman");
+		selectedProblemText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		selectedProblemText.setBounds(380, 138, 141, 27);
+		contentPane.add(selectedProblemText);
 		
 		lblNewLabel_7 = new JLabel("Kin's name");
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_7.setBounds(380, 191, 141, 27);
 		contentPane.add(lblNewLabel_7);
 		
-		lblNewLabel_8 = new JLabel("Abdur Rahman");
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_8.setBounds(380, 217, 141, 27);
-		contentPane.add(lblNewLabel_8);
+		kNameText = new JLabel("Abdur Rahman");
+		kNameText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		kNameText.setBounds(380, 217, 141, 27);
+		contentPane.add(kNameText);
 		
 		lblNewLabel_1_2 = new JLabel("Relation with patient");
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_2.setBounds(380, 243, 141, 27);
 		contentPane.add(lblNewLabel_1_2);
 		
-		lblNewLabel_9 = new JLabel("Abdur Rahman");
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_9.setBounds(380, 269, 141, 27);
-		contentPane.add(lblNewLabel_9);
+		kRelationText = new JLabel("Abdur Rahman");
+		kRelationText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		kRelationText.setBounds(380, 269, 141, 27);
+		contentPane.add(kRelationText);
 		
 		lblNewLabel_1_1_3 = new JLabel("Mobile number ");
 		lblNewLabel_1_1_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_1_3.setBounds(380, 295, 141, 27);
 		contentPane.add(lblNewLabel_1_1_3);
 		
-		lblNewLabel_10 = new JLabel("Abdur Rahman");
-		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_10.setBounds(380, 321, 141, 27);
-		contentPane.add(lblNewLabel_10);
+		kMobileText = new JLabel("Abdur Rahman");
+		kMobileText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		kMobileText.setBounds(380, 321, 141, 27);
+		contentPane.add(kMobileText);
 		
 		separator_1 = new JSeparator();
 		separator_1.setBounds(0, 356, 800, 2);
@@ -177,16 +179,25 @@ public class PatientDetails extends JFrame {
 		lblNewLabel_1_1_2_4.setBounds(380, 61, 141, 27);
 		contentPane.add(lblNewLabel_1_1_2_4);
 		
-		lblNewLabel_13 = new JLabel("88888888");
-		lblNewLabel_13.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_13.setBounds(380, 87, 141, 27);
-		contentPane.add(lblNewLabel_13);
+		visitNumberText = new JLabel("88888888");
+		visitNumberText.setText(String.valueOf(visitingNumber));
+		visitNumberText.setFont(new Font("Tahoma", Font.BOLD, 16));
+		visitNumberText.setBounds(380, 87, 141, 27);
+		contentPane.add(visitNumberText);
 		
 		JSeparator separator_1_1 = new JSeparator();
 		separator_1_1.setBounds(369, 176, 431, 2);
 		contentPane.add(separator_1_1);
 		
 		JButton btnNewButton_7_1 = new JButton("Book Another Appointment");
+		btnNewButton_7_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				MedicalAilments medicalAilments = new MedicalAilments();
+				medicalAilments.setVisible(true);
+			}
+		});
 		btnNewButton_7_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnNewButton_7_1.setBounds(226, 369, 200, 35);
 		contentPane.add(btnNewButton_7_1);
@@ -197,7 +208,7 @@ public class PatientDetails extends JFrame {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					PatientDetails frame = new PatientDetails();
+					PatientDetails frame = new PatientDetails(888,"");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

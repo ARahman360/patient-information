@@ -1,7 +1,9 @@
 import java.awt.EventQueue;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JFrame;
@@ -88,7 +90,6 @@ public class MedicalAilments extends JFrame {
 	        }
 	        rs.close();
 	        stmt.close();
-	        connection.close();
 	    } catch(Exception ex) {
 			JOptionPane.showMessageDialog(null, ex);
 		}
@@ -102,9 +103,14 @@ public class MedicalAilments extends JFrame {
                 if ("---Select-Problem---".equals(selectedProblem)) {
                     JOptionPane.showMessageDialog(MedicalAilments.this, "No problem was selected!");
                 } else {
+                	try {
+    			        connection.close();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
                 	dispose();
-					PatientInfo patientInfo = new PatientInfo(selectedProblem); //searchText
-					patientInfo.setVisible(true);
+                	PatientInfo patientInfo = new PatientInfo(selectedProblem);
+                	patientInfo.setVisible(true);
                 }
 			}
 		});
@@ -119,10 +125,68 @@ public class MedicalAilments extends JFrame {
 				String searchText = searchTextBox.getText();
                 if ("".equals(searchText)) {
                     JOptionPane.showMessageDialog(MedicalAilments.this, "No visit number was provided!");
+                } else if (!isNumeric(searchText) || searchText.length() != 8) {
+                	JOptionPane.showMessageDialog(MedicalAilments.this, "Invalid visit number!");
                 } else {
-                	dispose();
-					PatientDetails patientDetails = new PatientDetails(); //searchText
-					patientDetails.setVisible(true);
+                	PreparedStatement pst = null;
+                	ResultSet rs = null;
+                	
+                	int visitingNumber = 0;
+                	String problem;
+                	String firstName = null;
+                	String surName;
+                	String dob;
+                	String mobile;
+                	String email;
+                	String address;
+                	String kFirstName;
+                	String kSurName;
+                	String kRelation;
+                	String kMobile;
+                	String kEmail;
+                	String kAddress;
+                	
+                	try {
+    					String query = "select * from patients where visitingNumber=?";
+    					pst = connection.prepareStatement(query);
+    					pst.setInt(1, Integer.valueOf(searchText));	
+    					rs = pst.executeQuery();
+    					int count = 0;
+    					while(rs.next()) {
+    						count = count+1;
+    						visitingNumber = rs.getInt("visitingNumber");
+    						problem = rs.getString("problem");
+    						firstName = rs.getString("firstName");
+    						surName = rs.getString("surName");
+    						dob = rs.getString("dob");
+    						mobile = rs.getString("mobile");
+    						email = rs.getString("email");
+    						address = rs.getString("address");
+    						kFirstName = rs.getString("kFirstName");
+    						kSurName = rs.getString("kSurName");
+    						kRelation = rs.getString("kRelation");
+    						kMobile = rs.getString("kMobile");
+    						kEmail = rs.getString("kEmail");
+    						kAddress = rs.getString("kAddress");
+    					}
+    					if (count == 1) {
+    						dispose();
+    						PatientDetails patientDetails = new PatientDetails(visitingNumber,firstName);
+    						patientDetails.setVisible(true);    						
+    					} else {
+    						JOptionPane.showMessageDialog(null, "Redundant Data, Try Again !");
+    					}    					
+    				} catch(Exception ex) {
+    					JOptionPane.showMessageDialog(null, ex);
+    				} finally {
+    					try {
+    						rs.close();
+        					pst.close();
+        			        connection.close();
+    					} catch (SQLException e1) {
+    						e1.printStackTrace();
+    					}
+    				}
                 }
 			}
 		});
@@ -163,6 +227,19 @@ public class MedicalAilments extends JFrame {
 		addProblemButton.setBounds(51, 329, 200, 35);
 		bodyPanel.add(addProblemButton);
 	}
+	
+	public static boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        double d = Double.parseDouble(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
+	}
+
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

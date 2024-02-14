@@ -1,12 +1,12 @@
 package components;
 
 public class Patient {
-	private String firstName;
-	private String surName;
-	private String dob;
-	private String mobile;
-	private String email;
-	private String address;
+	public String firstName;
+	public String surName;
+	public String dob;
+	public String mobile;
+	public String email;
+	public String address;
 	
 	public Patient(String firstName, String surName, String dob, String mobile, String email, String address) {
 		this.firstName = firstName;
@@ -17,11 +17,7 @@ public class Patient {
 		this.address = address;
 	}
 	
-	public boolean isError(){
-		if (this.firstName == "" && this.surName == "" && this.dob == "" && this.mobile == "" && this.email == "" && this.address == "" ) {
-			return false;
-		} else {			
-			return true;
-		}
+	public boolean noError(){
+		return !firstName.isEmpty() && !surName.isEmpty() && !dob.isEmpty() && !mobile.isEmpty() && !email.isEmpty() && !address.isEmpty();
     }
 }
