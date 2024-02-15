@@ -47,7 +47,7 @@ public class BookingConfirmation extends JFrame {
 		this.kinInfo = kinInfo;
 		connection = DBConn.dbConnector();
 		Random rnd = new Random();
-		visitingNumber = 10000000 + rnd.nextInt(999999999);
+		visitingNumber = 10000000 + rnd.nextInt(99999999);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 812, 463);

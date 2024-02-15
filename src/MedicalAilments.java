@@ -119,6 +119,10 @@ public class MedicalAilments extends JFrame {
 		gotoPatientInfoButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		searchButton = new JButton("Search");
+		searchButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		searchButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
