@@ -132,19 +132,19 @@ public class MedicalAilments extends JFrame {
                 	ResultSet rs = null;
                 	
                 	int visitingNumber = 0;
-                	String problem;
+                	String problem = null;
                 	String firstName = null;
-                	String surName;
-                	String dob;
-                	String mobile;
-                	String email;
-                	String address;
-                	String kFirstName;
-                	String kSurName;
-                	String kRelation;
-                	String kMobile;
-                	String kEmail;
-                	String kAddress;
+                	String surName = null;
+                	String dob = null;
+                	String mobile = null;
+                	String email = null;
+                	String address = null;
+                	String kFirstName = null;
+                	String kSurName = null;
+                	String kRelation = null;
+                	String kMobile = null;
+                	String kEmail = null;
+                	String kAddress = null;
                 	
                 	try {
     					String query = "select * from patients where visitingNumber=?";
@@ -171,7 +171,7 @@ public class MedicalAilments extends JFrame {
     					}
     					if (count == 1) {
     						dispose();
-    						PatientDetails patientDetails = new PatientDetails(visitingNumber,firstName);
+    						PatientDetails patientDetails = new PatientDetails(visitingNumber,problem,firstName,surName,dob,mobile,email,address,kFirstName,kSurName,kRelation,kMobile,kEmail,kAddress);
     						patientDetails.setVisible(true);    						
     					} else {
     						JOptionPane.showMessageDialog(null, "Redundant Data, Try Again !");

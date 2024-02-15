@@ -101,7 +101,6 @@ public class BookingConfirmation extends JFrame {
 		btnConfirm.setBounds(150, 32, 290, 35);
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//===Booking Confirmation
 				PreparedStatement pstmt = null;
 				String queryString = "INSERT INTO patients(visitingNumber,problem,firstName,surName,dob,mobile,email,address,kFirstName,kSurName,kRelation,kMobile,kEmail,kAddress) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			    try {

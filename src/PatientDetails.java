@@ -35,9 +35,9 @@ public class PatientDetails extends JFrame {
 	private JLabel emailText;
 	private JLabel addressText;
 	private JSeparator separator;
-	private JLabel lblNewLabel_1_1_2_3;
+	private JLabel problemText;
 	private JLabel selectedProblemText;
-	private JLabel lblNewLabel_7;
+	private JLabel kinNameText;
 	private JLabel kNameText;
 	private JLabel lblNewLabel_1_2;
 	private JLabel kRelationText;
@@ -47,7 +47,7 @@ public class PatientDetails extends JFrame {
 	private JLabel lblNewLabel_1_1_2_4;
 	private JLabel visitNumberText;
 
-	public PatientDetails(int visitingNumber, String firstName) {
+	public PatientDetails(int visitingNumber,String problem,String firstName,String surName,String dob,String mobile,String email,String address,String kFirstName,String kSurName,String kRelation,String kMobile,String kEmail,String kAddress) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 816, 465);
 		contentPane = new JPanel();
@@ -100,29 +100,33 @@ public class PatientDetails extends JFrame {
 		contentPane.add(goBackButton);
 		
 		firstNameText = new JLabel("Abdur Rahman");
-		firstNameText.setText(firstName);
+		firstNameText.setText(firstName + ' ' + surName);
 		firstNameText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		firstNameText.setBounds(26, 99, 141, 27);
+		firstNameText.setBounds(26, 99, 332, 27);
 		contentPane.add(firstNameText);
 		
 		ageText = new JLabel("Abdur Rahman");
+		ageText.setText(dob);
 		ageText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		ageText.setBounds(26, 151, 141, 27);
+		ageText.setBounds(26, 151, 332, 27);
 		contentPane.add(ageText);
 		
 		mobileText = new JLabel("Abdur Rahman");
+		mobileText.setText(mobile);
 		mobileText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		mobileText.setBounds(26, 203, 141, 27);
+		mobileText.setBounds(26, 203, 332, 27);
 		contentPane.add(mobileText);
 		
 		emailText = new JLabel("Abdur Rahman");
+		emailText.setText(email);
 		emailText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		emailText.setBounds(26, 255, 141, 27);
+		emailText.setBounds(26, 255, 332, 27);
 		contentPane.add(emailText);
 		
 		addressText = new JLabel("Abdur Rahman");
+		addressText.setText(address);
 		addressText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		addressText.setBounds(26, 307, 141, 27);
+		addressText.setBounds(26, 307, 332, 27);
 		contentPane.add(addressText);
 		
 		separator = new JSeparator();
@@ -130,24 +134,26 @@ public class PatientDetails extends JFrame {
 		separator.setBounds(368, 50, 2, 308);
 		contentPane.add(separator);
 		
-		lblNewLabel_1_1_2_3 = new JLabel("Medical problem");
-		lblNewLabel_1_1_2_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_1_1_2_3.setBounds(380, 112, 141, 27);
-		contentPane.add(lblNewLabel_1_1_2_3);
+		problemText = new JLabel("Medical problem");
+		problemText.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		problemText.setBounds(380, 112, 141, 27);
+		contentPane.add(problemText);
 		
 		selectedProblemText = new JLabel("Abdur Rahman");
+		selectedProblemText.setText(problem);
 		selectedProblemText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		selectedProblemText.setBounds(380, 138, 141, 27);
+		selectedProblemText.setBounds(380, 138, 410, 27);
 		contentPane.add(selectedProblemText);
 		
-		lblNewLabel_7 = new JLabel("Kin's name");
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_7.setBounds(380, 191, 141, 27);
-		contentPane.add(lblNewLabel_7);
+		kinNameText = new JLabel("Kin's name");
+		kinNameText.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		kinNameText.setBounds(380, 191, 141, 27);
+		contentPane.add(kinNameText);
 		
 		kNameText = new JLabel("Abdur Rahman");
+		kNameText.setText(kFirstName + ' ' + kSurName);
 		kNameText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		kNameText.setBounds(380, 217, 141, 27);
+		kNameText.setBounds(380, 217, 410, 27);
 		contentPane.add(kNameText);
 		
 		lblNewLabel_1_2 = new JLabel("Relation with patient");
@@ -156,8 +162,9 @@ public class PatientDetails extends JFrame {
 		contentPane.add(lblNewLabel_1_2);
 		
 		kRelationText = new JLabel("Abdur Rahman");
+		kRelationText.setText(kRelation);
 		kRelationText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		kRelationText.setBounds(380, 269, 141, 27);
+		kRelationText.setBounds(380, 269, 410, 27);
 		contentPane.add(kRelationText);
 		
 		lblNewLabel_1_1_3 = new JLabel("Mobile number ");
@@ -166,8 +173,9 @@ public class PatientDetails extends JFrame {
 		contentPane.add(lblNewLabel_1_1_3);
 		
 		kMobileText = new JLabel("Abdur Rahman");
+		kMobileText.setText(kMobile);
 		kMobileText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		kMobileText.setBounds(380, 321, 141, 27);
+		kMobileText.setBounds(380, 321, 410, 27);
 		contentPane.add(kMobileText);
 		
 		separator_1 = new JSeparator();
@@ -182,7 +190,7 @@ public class PatientDetails extends JFrame {
 		visitNumberText = new JLabel("88888888");
 		visitNumberText.setText(String.valueOf(visitingNumber));
 		visitNumberText.setFont(new Font("Tahoma", Font.BOLD, 16));
-		visitNumberText.setBounds(380, 87, 141, 27);
+		visitNumberText.setBounds(380, 87, 410, 27);
 		contentPane.add(visitNumberText);
 		
 		JSeparator separator_1_1 = new JSeparator();
@@ -208,7 +216,7 @@ public class PatientDetails extends JFrame {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-					PatientDetails frame = new PatientDetails(888,"");
+					PatientDetails frame = new PatientDetails(888,"","","","","","","","","","","","","");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
