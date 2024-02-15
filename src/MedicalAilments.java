@@ -227,6 +227,10 @@ public class MedicalAilments extends JFrame {
 		bodyPanel.add(lblNewLabel_1_2);
 		
 		addProblemButton = new JButton("Add Problem");
+		addProblemButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		addProblemButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		addProblemButton.setBounds(51, 329, 200, 35);
 		bodyPanel.add(addProblemButton);
