@@ -29,7 +29,7 @@ public class PatientInfo extends JFrame {
 	
 	private JTextField textFirstName;
 	private JTextField textSurName;
-	private JTextField textDob;
+	private JTextField textDobYear;
 	private JTextField textMobile;
 	private JTextField textEmail;
 	private JTextField textAddress;
@@ -40,6 +40,8 @@ public class PatientInfo extends JFrame {
 	private JTextField textKinMobile;
 	private JTextField textKinEmail;
 	private JTextField textKinAddress;
+	private JTextField textDobDay;
+	private JTextField textDobMonth;
 
 	public PatientInfo(String selectedProblem) {
 		this.selectedProblem = selectedProblem;
@@ -67,7 +69,10 @@ public class PatientInfo extends JFrame {
 		gotoBookingButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Patient patient = new Patient(textFirstName.getText(), textSurName.getText(), textDob.getText(), textMobile.getText(), textEmail.getText(), textAddress.getText());
+				String processedDob = textDobDay.getText() +"-"+ textDobMonth.getText() +"-"+ textDobYear.getText();
+								
+				
+				Patient patient = new Patient(textFirstName.getText(), textSurName.getText(), processedDob, textMobile.getText(), textEmail.getText(), textAddress.getText());
 				Kin kin = new Kin(textKinFirstName.getText(), textKinSurName.getText(), textKinRelation.getText(), textKinMobile.getText(), textKinEmail.getText(), textKinAddress.getText());
 				if(patient.noError() && kin.noError()) {
 					dispose();
@@ -108,10 +113,23 @@ public class PatientInfo extends JFrame {
 		bodyPanel.add(lblNewLabel_1_1_1);
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		textDob = new JTextField();
-		textDob.setBounds(10, 122, 140, 30);
-		bodyPanel.add(textDob);
-		textDob.setColumns(10);
+		textDobDay = new JTextField();
+		textDobDay.setText("20");
+		textDobDay.setColumns(10);
+		textDobDay.setBounds(10, 122, 35, 30);
+		bodyPanel.add(textDobDay);
+		
+		textDobMonth = new JTextField();
+		textDobMonth.setText("20");
+		textDobMonth.setColumns(10);
+		textDobMonth.setBounds(45, 122, 35, 30);
+		bodyPanel.add(textDobMonth);
+		
+		textDobYear = new JTextField();
+		textDobYear.setText("1998");
+		textDobYear.setBounds(80, 122, 70, 30);
+		bodyPanel.add(textDobYear);
+		textDobYear.setColumns(10);
 		
 		JLabel lblNewLabel_1_1_2 = new JLabel("Mobile number ");
 		lblNewLabel_1_1_2.setBounds(155, 99, 141, 27);
@@ -251,7 +269,7 @@ public class PatientInfo extends JFrame {
 	public void setPatientInfo(Patient patientInfo, Kin kinInfo) {
 		textFirstName.setText(patientInfo.firstName);
 		textSurName.setText(patientInfo.surName);
-		textDob.setText(patientInfo.dob);
+		textDobYear.setText(patientInfo.dob);
 		textMobile.setText(patientInfo.mobile);
 		textEmail.setText(patientInfo.email);
 		textAddress.setText(patientInfo.address);

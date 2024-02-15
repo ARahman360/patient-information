@@ -37,17 +37,11 @@ public class BookingConfirmation extends JFrame {
 	Connection connection = null;
 	private static final long serialVersionUID = 1L;
 	private int visitingNumber;
-	private String selectedProblem;
-	private Patient patientInfo;
-	private Kin kinInfo;
 
 	public BookingConfirmation(String selectedProblem, Patient patientInfo, Kin kinInfo) {
-		this.selectedProblem = selectedProblem;
-		this.patientInfo = patientInfo;
-		this.kinInfo = kinInfo;
 		connection = DBConn.dbConnector();
 		Random rnd = new Random();
-		visitingNumber = 10000000 + rnd.nextInt(99999999);
+		visitingNumber = 10000000 + rnd.nextInt(90000000);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 812, 463);
@@ -98,7 +92,7 @@ public class BookingConfirmation extends JFrame {
 		mainMenuButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
 		JButton btnConfirm = new JButton("Confirm");
-		btnConfirm.setBounds(150, 32, 290, 35);
+		btnConfirm.setBounds(161, 43, 290, 35);
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PreparedStatement pstmt = null;
@@ -148,7 +142,7 @@ public class BookingConfirmation extends JFrame {
 				medicalAilments.setVisible(true);
 			}
 		});
-		btnLater.setBounds(150, 77, 290, 35);
+		btnLater.setBounds(161, 88, 290, 35);
 		btnLater.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -157,32 +151,53 @@ public class BookingConfirmation extends JFrame {
 		btnLater.setBackground(new Color(255, 255, 255));
 		
 		JLabel lblNewLabel_1 = new JLabel("Confirm booking?");
-		lblNewLabel_1.setBounds(237, 0, 118, 27);
+		lblNewLabel_1.setBounds(248, 11, 118, 27);
 		bodyPanel.add(lblNewLabel_1);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(0, 134, 600, 2);
+		separator_2.setBounds(0, 134, 615, 2);
 		bodyPanel.add(separator_2);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Your visit number:");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setBounds(5, 144, 595, 27);
+		lblNewLabel_1_1.setBounds(5, 223, 595, 27);
 		bodyPanel.add(lblNewLabel_1_1);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
 		JLabel randomNumberText = new JLabel(String.valueOf(visitingNumber));
-		randomNumberText.setBounds(226, 178, 153, 27);
+		randomNumberText.setBounds(226, 257, 153, 27);
 		randomNumberText.setHorizontalAlignment(SwingConstants.CENTER);
 		randomNumberText.setFont(new Font("Arial", Font.BOLD, 30));
 		bodyPanel.add(randomNumberText);
 
 		JLabel lblNewLabel_1_2 = new JLabel("Remember your visit number for later use.");
-		lblNewLabel_1_2.setForeground(Color.ORANGE);
+		lblNewLabel_1_2.setForeground(Color.MAGENTA);
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_1_2.setBounds(5, 216, 595, 27);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_1_2.setBounds(10, 282, 595, 27);
 		bodyPanel.add(lblNewLabel_1_2);
+		
+		JSeparator separator_2_1 = new JSeparator();
+		separator_2_1.setBounds(0, 320, 615, 2);
+		bodyPanel.add(separator_2_1);
+		
+		JSeparator separator_2_2 = new JSeparator();
+		separator_2_2.setBounds(0, 197, 615, 2);
+		bodyPanel.add(separator_2_2);
+		
+		JLabel lblNewLabel_1_2_1 = new JLabel("You are eligible for a free meal.");
+		lblNewLabel_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_2_1.setForeground(Color.BLUE);
+		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_1_2_1.setBounds(5, 159, 595, 27);
+		bodyPanel.add(lblNewLabel_1_2_1);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("NOTE:");
+		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_3.setBounds(237, 141, 118, 27);
+		bodyPanel.add(lblNewLabel_1_3);
 	}
 	
 	public static void main(String[] args) {
