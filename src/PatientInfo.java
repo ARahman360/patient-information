@@ -18,9 +18,12 @@ import components.HeaderPanel;
 import components.Kin;
 import components.Patient;
 import components.BodyPanel;
+import components.CustomDate;
+
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JCheckBox;
 
 public class PatientInfo extends JFrame {
 	private String selectedProblem;
@@ -69,19 +72,22 @@ public class PatientInfo extends JFrame {
 		gotoBookingButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String processedDob = textDobDay.getText() +"-"+ textDobMonth.getText() +"-"+ textDobYear.getText();
-								
-				
-				Patient patient = new Patient(textFirstName.getText(), textSurName.getText(), processedDob, textMobile.getText(), textEmail.getText(), textAddress.getText());
-				Kin kin = new Kin(textKinFirstName.getText(), textKinSurName.getText(), textKinRelation.getText(), textKinMobile.getText(), textKinEmail.getText(), textKinAddress.getText());
-				if(patient.noError() && kin.noError()) {
-					dispose();
-					BookingConfirmation bookingConfirmation = new BookingConfirmation(selectedProblem, patient, kin);
-					bookingConfirmation.setVisible(true);
-				} else {					
-					JOptionPane.showMessageDialog(PatientInfo.this, "All fields are required!");
+				CustomDate customDate = new CustomDate(textDobDay.getText(),textDobMonth.getText(),textDobYear.getText());
+				if(customDate.isEmpty()) {
+					JOptionPane.showMessageDialog(PatientInfo.this, "Date field cannot be empty!");
+				} else if(customDate.isParsable()) {					
+					Patient patient = new Patient(textFirstName.getText(), textSurName.getText(), customDate.getString(), textMobile.getText(), textEmail.getText(), textAddress.getText());
+					Kin kin = new Kin(textKinFirstName.getText(), textKinSurName.getText(), textKinRelation.getText(), textKinMobile.getText(), textKinEmail.getText(), textKinAddress.getText());
+					if(patient.noError() && kin.noError()) {
+						dispose();
+						BookingConfirmation bookingConfirmation = new BookingConfirmation(selectedProblem, patient, kin);
+						bookingConfirmation.setVisible(true);
+					} else {					
+						JOptionPane.showMessageDialog(PatientInfo.this, "All fields are required!");
+					}
+				} else {
+					JOptionPane.showMessageDialog(PatientInfo.this, "Invalid date provided!");
 				}
-				
 			}
 		});
 		gotoBookingButton.setBounds(523, 330, 85, 31);
@@ -114,19 +120,19 @@ public class PatientInfo extends JFrame {
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		textDobDay = new JTextField();
-		textDobDay.setText("20");
+		textDobDay.setHorizontalAlignment(SwingConstants.CENTER);
 		textDobDay.setColumns(10);
 		textDobDay.setBounds(10, 122, 35, 30);
 		bodyPanel.add(textDobDay);
 		
 		textDobMonth = new JTextField();
-		textDobMonth.setText("20");
+		textDobMonth.setHorizontalAlignment(SwingConstants.CENTER);
 		textDobMonth.setColumns(10);
 		textDobMonth.setBounds(45, 122, 35, 30);
 		bodyPanel.add(textDobMonth);
 		
 		textDobYear = new JTextField();
-		textDobYear.setText("1998");
+		textDobYear.setHorizontalAlignment(SwingConstants.CENTER);
 		textDobYear.setBounds(80, 122, 70, 30);
 		bodyPanel.add(textDobYear);
 		textDobYear.setColumns(10);
@@ -264,12 +270,20 @@ public class PatientInfo extends JFrame {
 		lblNewLabel_1_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_1_2_2.setBounds(458, 99, 135, 27);
 		bodyPanel.add(lblNewLabel_1_1_2_2);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Any disablities?");
+		chckbxNewCheckBox.setBounds(12, 292, 275, 23);
+		bodyPanel.add(chckbxNewCheckBox);
 	}
 	
 	public void setPatientInfo(Patient patientInfo, Kin kinInfo) {
+		String[] dateParts = patientInfo.dob.split("-");	
+		textDobDay.setText(dateParts[0]);
+		textDobMonth.setText(dateParts[1]);
+		textDobYear.setText(dateParts[2]);
+		
 		textFirstName.setText(patientInfo.firstName);
 		textSurName.setText(patientInfo.surName);
-		textDobYear.setText(patientInfo.dob);
 		textMobile.setText(patientInfo.mobile);
 		textEmail.setText(patientInfo.email);
 		textAddress.setText(patientInfo.address);

@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import components.BodyPanel;
+import components.CustomDateParser;
 import components.DBConn;
 import components.HeaderPanel;
 import components.Kin;
@@ -186,12 +187,14 @@ public class BookingConfirmation extends JFrame {
 		separator_2_2.setBounds(0, 197, 615, 2);
 		bodyPanel.add(separator_2_2);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("You are eligible for a free meal.");
-		lblNewLabel_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_2_1.setForeground(Color.BLUE);
-		lblNewLabel_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_1_2_1.setBounds(5, 159, 595, 27);
-		bodyPanel.add(lblNewLabel_1_2_1);
+		JLabel processedText = new JLabel("");
+		CustomDateParser ageData = new CustomDateParser(patientInfo.dob);
+		processedText.setText(ageData.getBenifitMessage());
+		processedText.setHorizontalAlignment(SwingConstants.CENTER);
+		processedText.setForeground(Color.BLUE);
+		processedText.setFont(new Font("Tahoma", Font.BOLD, 12));
+		processedText.setBounds(5, 159, 595, 27);
+		bodyPanel.add(processedText);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("NOTE:");
 		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.CENTER);
