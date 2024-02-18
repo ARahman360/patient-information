@@ -198,6 +198,10 @@ public class PatientDetails extends JFrame {
 		contentPane.add(separator_1_1);
 		
 		JButton btnNewButton_7_1 = new JButton("Book Another Appointment");
+		btnNewButton_7_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_7_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

@@ -231,6 +231,14 @@ public class MedicalAilments extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		addProblemButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				AddAilment addailment = new AddAilment();
+				addailment.setVisible(true);
+			}
+		});
 		addProblemButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		addProblemButton.setBounds(51, 329, 200, 35);
 		bodyPanel.add(addProblemButton);

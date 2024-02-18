@@ -36,7 +36,7 @@ public class AddAilment extends JFrame {
 	private JButton addProblemButton;
 
 	public AddAilment() {
-		setTitle("BMH : Medical Ailments");
+		setTitle("BMH : Add Ailment");
 		connection = DBConn.dbConnector();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 815, 465);
