@@ -117,6 +117,19 @@ public class AddAilment extends JFrame {
 		addProblemButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		addProblemButton.setBounds(350, 109, 200, 35);
 		bodyPanel.add(addProblemButton);
+		
+		JButton btnGoBack = new JButton("Go Back");
+		btnGoBack.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+				MedicalAilments medicalAilments = new MedicalAilments();
+				medicalAilments.setVisible(true);
+			}
+		});
+		btnGoBack.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnGoBack.setBounds(51, 308, 200, 35);
+		bodyPanel.add(btnGoBack);
 	}
 	
 	public static void main(String[] args) {

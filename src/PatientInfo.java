@@ -271,7 +271,7 @@ public class PatientInfo extends JFrame {
 		lblNewLabel_1_1_2_2.setBounds(458, 99, 135, 27);
 		bodyPanel.add(lblNewLabel_1_1_2_2);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Any disablities?");
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Any disablities? Check if yes.");
 		chckbxNewCheckBox.setBounds(12, 292, 275, 23);
 		bodyPanel.add(chckbxNewCheckBox);
 	}
