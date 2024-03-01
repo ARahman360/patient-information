@@ -174,6 +174,9 @@ public class MedicalAilments extends JFrame {
     						kAddress = rs.getString("kAddress");
     					}
     					if (count == 1) {
+    						rs.close();
+        					pst.close();
+    						connection.close();
     						dispose();
     						PatientDetails patientDetails = new PatientDetails(visitingNumber,problem,firstName,surName,dob,mobile,email,address,kFirstName,kSurName,kRelation,kMobile,kEmail,kAddress);
     						patientDetails.setVisible(true);    						
@@ -182,15 +185,16 @@ public class MedicalAilments extends JFrame {
     					}    					
     				} catch(Exception ex) {
     					JOptionPane.showMessageDialog(null, ex);
-    				} finally {
-    					try {
-    						rs.close();
-        					pst.close();
-        			        connection.close();
-    					} catch (SQLException e1) {
-    						e1.printStackTrace();
-    					}
-    				}
+    				} 
+                	//                	finally {
+                	//    					try {
+                	//    						rs.close();
+                	//        					pst.close();
+                	//     			        connection.close();
+                	//    					} catch (SQLException e1) {
+                	//    						e1.printStackTrace();
+                	//    					}
+                	//    				}
                 }
 			}
 		});
@@ -211,7 +215,7 @@ public class MedicalAilments extends JFrame {
 		separator_2_1.setBounds(0, 290, 615, 2);
 		bodyPanel.add(separator_2_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Search Patient");
+		JLabel lblNewLabel_1_1 = new JLabel("Search Patient (Visiting Number)");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_1.setBounds(51, 36, 500, 25);
 		bodyPanel.add(lblNewLabel_1_1);
